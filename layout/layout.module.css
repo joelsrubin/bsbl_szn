@@ -1,0 +1,21 @@
+.header {
+  background-color: rgb(175, 245, 175);
+  text-align: center;
+  height: 2rem;
+  font-size: 20px;
+  padding-top: 3px;
+}
+
+.header a:hover{
+  text-decoration: underline;
+  cursor: pointer;
+
+}
+
+.background {
+  background-image: url('../public/Sports.png');
+  height: auto;
+  width: 100vw;
+  background-size: auto;
+  background-repeat: repeat;
+}
