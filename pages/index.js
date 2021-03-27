@@ -13,14 +13,14 @@ export default function Home() {
         <div className={styles.grid}>
           <ul className={styles.ul}>
             <li className={styles.card}>
-              <Link href="/teamPages/MLB">
+              <Link href="/teamPages/Leagues">
                 <a>Major League Baseball</a>
               </Link>
             </li>
             <li className={styles.card}>
-              {/* <Link>
+              <Link href="/">
                 <a>Minor League Baseball</a>
-              </Link> */}
+              </Link>
             </li>
           </ul>
         </div>
