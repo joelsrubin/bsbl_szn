@@ -17,3 +17,11 @@ export const filterTeam = (data, id) => {
 
   return team;
 };
+
+function Utils() {
+  return (
+    <div>loading...</div>
+  );
+}
+
+export default Utils;

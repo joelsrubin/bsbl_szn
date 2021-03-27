@@ -2,7 +2,7 @@ import Layout from '../../layout/layout.js';
 import Link from 'next/link';
 import styles from '../../styles/Home.module.css';
 import { useState, useEffect } from 'react';
-import { filterTeams } from '../utils';
+import { filterTeams } from '../utils/index.js';
 
 
 export const getStaticProps = async () => {

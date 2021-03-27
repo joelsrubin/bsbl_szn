@@ -1,7 +1,10 @@
-const MLBStatsAPI = require('mlb-stats-api');
-const mlbStats = new MLBStatsAPI();
+import { mlbStats } from './hello.js';
 
 export default async (req, res) => {
-  const response = await mlbStats.getTeam();
-  res.send(response.data.teams);
+  console.log("hello");
+  let id = req.body;
+  id = 104;
+  console.log(id);
+  const response = await mlbStats.getTeams({ params: { teamId: 104, leagueId: 104, leagueListid: 104 } });
+  console.log(response.data);
 };

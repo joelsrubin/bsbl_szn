@@ -18,9 +18,9 @@ export default function Home() {
               </Link>
             </li>
             <li className={styles.card}>
-              <Link href="/MiLB">
+              {/* <Link>
                 <a>Minor League Baseball</a>
-              </Link>
+              </Link> */}
             </li>
           </ul>
         </div>

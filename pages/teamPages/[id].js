@@ -1,7 +1,7 @@
 import styles from '../../styles/Home.module.css';
 import Layout from '../../layout/layout.js';
-import { filterTeams, filterTeam } from '../utils';
-import axios from 'axios';
+import { filterTeams, filterTeam } from '../utils/index.js';
+
 
 export const getStaticPaths = async () => {
 
@@ -38,10 +38,10 @@ export const getStaticProps = async (context) => {
 };
 
 function Details({ team }) {
-  console.log(team);
+  fetch('http://localhost:3000/api/team/').then((data) => data.json()).then((result) => console.log(result));
   return (
     <Layout>
-      <div className={styles.grid}>
+      <div className={styles.container}>
         <h1>{team[0].name} Page</h1>
         <h3>
           {team[0].venue.name}
