@@ -1,6 +1,6 @@
 import styles from '../../styles/Home.module.css';
 import Layout from '../../layout/layout.js';
-import { filterTeams, filterTeam } from '../utils/index.js';
+import { filterTeams } from '../utils/index.js';
 
 
 export const getStaticPaths = async () => {
@@ -12,7 +12,8 @@ export const getStaticPaths = async () => {
   const paths = res.map((team, i) => {
     return {
       params: {
-        id: team.id.toString()
+        id: team.id.toString(),
+
       }
     };
   });
@@ -25,27 +26,24 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const id = context.params.id;
-  const res = await fetch('http://localhost:3000/api/hello');
+  const res = await fetch(`http://localhost:3000/api/team?id=${id}`);
   let data = await res.json();
-  data = filterTeam(data, Number(id));
+
 
   return {
     props: {
-      team: data
+      team: data.teams[0]
     }
   };
 
 };
 
 function Details({ team }) {
-  fetch('http://localhost:3000/api/team/').then((data) => data.json()).then((result) => console.log(result));
+
   return (
     <Layout>
-      <div className={styles.container}>
-        <h1>{team[0].name} Page</h1>
-        <h3>
-          {team[0].venue.name}
-        </h3>
+      <div className={styles.grid}>
+        <h1 className={styles.card}>{team.name}</h1>
       </div>
     </Layout>
   );

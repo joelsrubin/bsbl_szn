@@ -7,16 +7,6 @@ export const filterTeams = (data) => {
   return mlb;
 };
 
-export const filterTeam = (data, id) => {
-
-  let team = data.filter((team) => {
-    if (team.id === id) {
-      return true;
-    }
-  });
-
-  return team;
-};
 
 function Utils() {
   return (

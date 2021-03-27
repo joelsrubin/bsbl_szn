@@ -45,6 +45,17 @@
   margin-top: 3rem;
 }
 
+.teamGrid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+  min-height: 800px;
+  margin-top: 3rem;
+
+}
+
 .card {
   margin: 1rem;
   flex-basis: 45%;
