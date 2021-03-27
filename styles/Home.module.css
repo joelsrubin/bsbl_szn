@@ -36,6 +36,39 @@
 
 .grid {
   margin: auto;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+  min-height: 800px;
+  margin-top: 3rem;
+}
+
+.smallGrid {
+  margin: auto;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  margin-top: 3rem;
+}
+.smallGridRow {
+  margin: auto;
+  flex-direction: Row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  margin-top: 3rem;
+}
+.gridRow {
+  margin: auto;
+  flex-direction: row;
   display: flex;
   align-items: center;
   justify-content: center;

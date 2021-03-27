@@ -1,6 +1,6 @@
 import styles from '../../styles/Home.module.css';
 import Layout from '../../layout/layout.js';
-import { filterTeams } from '../utils/index.js';
+import { filterTeams, filterPitchers, filterPositionPlayers } from '../utils/index.js';
 
 
 export const getStaticPaths = async () => {
@@ -44,14 +44,24 @@ export const getStaticProps = async (context) => {
 
 function Details({ team, roster }) {
 
+
+
   return (
     <Layout>
-      <div className={styles.grid}>
+      <div className={styles.smallGrid}>
         <h1 className={styles.card}>{team.name}</h1>
         <h2>Roster:</h2>
-        <ul className={styles.ul}>
-          {roster.map(player => <li key={player.person.id}>{player.person.fullName}</li>)}
-        </ul>
+        <div className={styles.smallGridRow}>
+
+          <ul className={styles.ul}>
+            <strong>Pitchers:</strong>
+            {filterPitchers(roster).map(player => <li className={styles.card} key={player.person.id}>{player.person.fullName}</li>)}
+          </ul>
+          <ul className={styles.ul}>
+            <strong>Position Players:</strong>
+            {filterPositionPlayers(roster).map(player => <li className={styles.card} key={player.person.id}>{player.person.fullName}</li>)}
+          </ul>
+        </div>
       </div>
     </Layout>
   );

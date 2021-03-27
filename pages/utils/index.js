@@ -25,6 +25,24 @@ export const filterNL = (data) => {
   return nl;
 };
 
+export const filterPitchers = (data) => {
+  let pitchers = data.filter((player) => {
+    if (player.position.name === "Pitcher") {
+      return true;
+    }
+  });
+  return pitchers;
+};
+
+export const filterPositionPlayers = (data) => {
+  let positionPlayers = data.filter((player) => {
+    if (player.position.name !== "Pitcher") {
+      return true;
+    }
+  });
+  return positionPlayers;
+};
+
 
 function Utils() {
   return (
