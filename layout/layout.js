@@ -15,6 +15,10 @@ export default function Layout({ children }) {
         <Link href="/">
           <a>Baseball</a>
         </Link>
+
+        <Link href="/teamPages/MLB">
+          <a>Leagues</a>
+        </Link>
       </header>
       <main className={styles.background}>
         {children}

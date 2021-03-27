@@ -1,16 +1,9 @@
 import styles from '../../styles/Home.module.css';
 import Layout from '../../layout/layout.js';
+import { filterTeams, filterTeam } from '../utils';
+import axios from 'axios';
 
 export const getStaticPaths = async () => {
-  const filterTeams = (data) => {
-    let mlb = data.filter((team) => {
-      if (team.league.id === 103 || team.league.id === 104) {
-        return true;
-      }
-    });
-    return mlb;
-  };
-
 
   const res = await fetch('http://localhost:3000/api/hello')
     .then(result => result.json())
@@ -31,23 +24,28 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async (context) => {
-  console.log("here");
   const id = context.params.id;
-  console.log("context: ", context);
-  const res = await fetch('http://localhost:3000/api/team/' + id);
-  const data = await res.json();
+  const res = await fetch('http://localhost:3000/api/hello');
+  let data = await res.json();
+  data = filterTeam(data, Number(id));
+
   return {
     props: {
-      team: data,
+      team: data
     }
   };
+
 };
 
 function Details({ team }) {
+  console.log(team);
   return (
     <Layout>
       <div className={styles.grid}>
-        <h1>{team.team} Page</h1>
+        <h1>{team[0].name} Page</h1>
+        <h3>
+          {team[0].venue.name}
+        </h3>
       </div>
     </Layout>
   );

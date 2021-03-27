@@ -2,24 +2,18 @@ import Layout from '../../layout/layout.js';
 import Link from 'next/link';
 import styles from '../../styles/Home.module.css';
 import { useState, useEffect } from 'react';
+import { filterTeams } from '../utils';
+
 
 export const getStaticProps = async () => {
-  const filterTeams = (data) => {
-    let mlb = data.filter((team) => {
-      if (team.league.id === 103 || team.league.id === 104) {
-        return true;
-      }
-    });
-    return mlb;
-  };
 
-  const res = await fetch('http://localhost:3000/api/hello')
-    .then(result => result.json())
-    .then(data => filterTeams(data));
+  const res = await fetch('http://localhost:3000/api/hello');
+  let data = await res.json();
+  data = filterTeams(data);
 
   return {
     props: {
-      teams: res
+      teams: data
     }
   };
 };
@@ -42,4 +36,3 @@ function MajorLeague({ teams }) {
 }
 
 export default MajorLeague;
-// {teams.map(team => (<Team key={team.name} team={team} />))}
